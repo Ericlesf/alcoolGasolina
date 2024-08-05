@@ -1,7 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Keyboard, Modal } from 'react-native';
+import Resultado from './src/Resultado';
+
 
 export default function App() {
+  const [alcool, setAlcool] = useState()
+  const [gasolina, setGasolina] = useState()
+  const [resultado, setResultado] = useState()
+  const [visibleModal, setVisibleModal] = useState(false)
+
+  function calcular() {
+    Keyboard.dismiss()
+    setResultado(alcool / gasolina)
+  }
+
+
   return (
     <View style={styles.container}>
 
@@ -13,20 +27,38 @@ export default function App() {
       <View style={styles.inputContainer}>
 
         <Text style={styles.inputTitulo}>Álcool (Preço por litro)</Text>
-        <TextInput 
+        <TextInput
           style={styles.input}
-          placeholder='Ex: 3.79'/>
+          placeholder='Ex: 3.79'
+          value={alcool}
+          onChangeText={setAlcool}
+        />
 
         <Text style={styles.inputTitulo}>Gasolina (Preço por litro)</Text>
-        <TextInput 
+        <TextInput
           style={styles.input}
-          placeholder='Ex: 5.19'/>
+          placeholder='Ex: 5.19'
+          value={gasolina}
+          onChangeText={setGasolina}
+        />
 
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.botaoTexto}>Calcular</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => setVisibleModal(true)}
+        >
+          <Text style={styles.botaoTexto}>Calcular</Text>
+        </TouchableOpacity>
 
       </View>
+
+      <Modal
+        animationType='slide'
+        transparent={false}
+        visible={visibleModal}
+
+      >
+        <Resultado />
+      </Modal>
 
       <StatusBar style="auto" />
     </View>
