@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
   titulo: {
-    color: "#FFF",
+    color: "#2eeb59",
     fontSize: 30,
     marginTop: 30,
     fontWeight: 'bold'
@@ -51,19 +51,22 @@ const styles = StyleSheet.create({
   },
   textoPrecos: {
     color: '#FFF',
-    fontSize: 18
+    fontSize: 18,
+    marginTop: 10
   },
   botao: {
-    backgroundColor: '#ff3030',
+    backgroundColor: '#121212',
     width: '80%',
     height: 40,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 30
+    marginTop: 30,
+    borderWidth: 2,
+    borderColor: '#ff3030'
   },
   textoBotao: {
-    color: '#FFF',
+    color: '#ff3030',
     fontSize: 22
   }
 })
