@@ -57,7 +57,10 @@ export default function App() {
         visible={visibleModal}
 
       >
-        <Resultado />
+        <Resultado
+          calculo={resultado}
+          voltar={() => { setVisibleModal(false) }}
+        />
       </Modal>
 
       <StatusBar style="auto" />
