@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Button } from 'react-native'
+import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 
@@ -16,7 +16,12 @@ export default function Resultado(props) {
       <Text style={styles.textoPrecos}>Álcool: R$3.79</Text>
       <Text style={styles.textoPrecos}>Gasolina: R$5.69</Text>
 
-      <Button title='Voltar' onPress={props.voltar} />
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={props.voltar}
+      >
+        <Text style={styles.textoBotao}>Calcular novamente</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -47,5 +52,18 @@ const styles = StyleSheet.create({
   textoPrecos: {
     color: '#FFF',
     fontSize: 18
+  },
+  botao: {
+    backgroundColor: '#ff3030',
+    width: '80%',
+    height: 40,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30
+  },
+  textoBotao: {
+    color: '#FFF',
+    fontSize: 22
   }
 })
