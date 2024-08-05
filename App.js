@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
   return (
@@ -22,6 +22,10 @@ export default function App() {
           style={styles.input}
           placeholder='Ex: 5.19'/>
 
+          <TouchableOpacity style={styles.botao}>
+            <Text style={styles.botaoTexto}>Calcular</Text>
+          </TouchableOpacity>
+
       </View>
 
       <StatusBar style="auto" />
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
   },
   titulo: {
     color: "#FFF",
-    fontSize: 28,
+    fontSize: 30,
     marginTop: 30,
     fontWeight: 'bold'
   },
@@ -58,10 +62,22 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: '#FFF',
     height: 55,
-    fontSize: 16,
+    fontSize: 18,
     marginTop: 10,
     borderRadius: 8,
     padding: 8,
-    marginBottom: 20
+    marginBottom: 20,
+  },
+  botao: {
+    backgroundColor: "#ff3030",
+    height: 55,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  botaoTexto: {
+    color: '#FFF',
+    fontSize: 26,
+    fontWeight: 'bold'
   }
 });
