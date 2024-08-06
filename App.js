@@ -69,7 +69,7 @@ export default function App() {
           resultado={resultado}
           alcool={alcool}
           gasolina={gasolina}
-          voltar={() => { setVisibleModal(false) }}
+          voltar={() => { setVisibleModal(false), setGasolina(), setAlcool() }}
         />
       </Modal>
 
