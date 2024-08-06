@@ -5,15 +5,15 @@ import Resultado from './src/Resultado';
 
 
 export default function App() {
-  const [alcool, setAlcool] = useState()
-  const [gasolina, setGasolina] = useState()
-  const [resultado, setResultado] = useState()
+  const [alcool, setAlcool] = useState(0)
+  const [gasolina, setGasolina] = useState(0)
+  const [resultado, setResultado] = useState(null)
   const [visibleModal, setVisibleModal] = useState(false)
 
   function calcular() {
     Keyboard.dismiss()
 
-    if (alcool === '' || gasolina === '') {
+    if (alcool === 0 || gasolina === 0) {
       alert('Digite valores válidos!')
     }
     else {
@@ -40,6 +40,7 @@ export default function App() {
           placeholder='Ex: 3.79'
           value={alcool}
           onChangeText={setAlcool}
+          keyboardType='numeric'
         />
 
         <Text style={styles.inputTitulo}>Gasolina (Preço por litro)</Text>
@@ -48,6 +49,7 @@ export default function App() {
           placeholder='Ex: 5.19'
           value={gasolina}
           onChangeText={setGasolina}
+          keyboardType='numeric'
         />
 
         <TouchableOpacity
@@ -69,7 +71,7 @@ export default function App() {
           resultado={resultado}
           alcool={alcool}
           gasolina={gasolina}
-          voltar={() => { setVisibleModal(false), setGasolina(''), setAlcool('') }}
+          voltar={() => { setVisibleModal(false), setGasolina(0), setAlcool(0) }}
         />
       </Modal>
 
