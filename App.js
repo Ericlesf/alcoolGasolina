@@ -12,8 +12,15 @@ export default function App() {
 
   function calcular() {
     Keyboard.dismiss()
-    setResultado(alcool / gasolina)
-    setVisibleModal(true)
+
+    if (alcool === '' || gasolina === '') {
+      alert('Digite valores válidos!')
+    }
+    else {
+      setResultado(alcool / gasolina)
+      setVisibleModal(true)
+    }
+
   }
 
 
