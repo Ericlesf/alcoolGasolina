@@ -1,8 +1,14 @@
 import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 export default function Resultado(props) {
+  const [titulo, setTitulo] = useState('')
+
+  useEffect(() => {
+    props.resultado < 0.7 ? setTitulo('Compensa usar Álcool') : setTitulo('Compensa usar Gasolina')
+  })
+
   return (
     <View style={styles.container}>
 
@@ -11,10 +17,10 @@ export default function Resultado(props) {
         source={require('../../assets/gas.png')}
       />
 
-      <Text style={styles.titulo}>Compensa usar Gasolina</Text>
+      <Text style={styles.titulo}>{titulo}</Text>
       <Text style={styles.tituloPrecos}>Com os seguintes preços:</Text>
-      <Text style={styles.textoPrecos}>Álcool: R$3.79</Text>
-      <Text style={styles.textoPrecos}>Gasolina: R$5.69</Text>
+      <Text style={styles.textoPrecos}>Álcool: R${props.alcool}</Text>
+      <Text style={styles.textoPrecos}>Gasolina: R${props.gasolina}</Text>
 
       <TouchableOpacity
         style={styles.botao}
