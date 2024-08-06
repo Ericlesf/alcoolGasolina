@@ -13,6 +13,7 @@ export default function App() {
   function calcular() {
     Keyboard.dismiss()
     setResultado(alcool / gasolina)
+    setVisibleModal(true)
   }
 
 
@@ -44,7 +45,7 @@ export default function App() {
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => setVisibleModal(true)}
+          onPress={calcular}
         >
           <Text style={styles.botaoTexto}>Calcular</Text>
         </TouchableOpacity>
@@ -58,7 +59,9 @@ export default function App() {
 
       >
         <Resultado
-          calculo={resultado}
+          resultado={resultado}
+          alcool={alcool}
+          gasolina={gasolina}
           voltar={() => { setVisibleModal(false) }}
         />
       </Modal>
